@@ -50,7 +50,16 @@ angular.module('watchFighers', [])
       restrict: "A",
       priority: 100,
       link: function($scope, $el, $attr) {
-        $($el).addClass($scope.$eval($attr.setClass));
+        var classVal = $scope.$eval($attr.setClass);
+        if (angular.isObject(classVal)) {
+          for (var key in classVal) {
+            if (classVal.hasOwnProperty(key) && classVal[key]) {
+              $el.addClass(key);
+            }
+          }
+        } else {
+          $el.addClass(classVal);
+        }
       }
     };
   })
