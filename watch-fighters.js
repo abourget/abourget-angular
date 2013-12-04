@@ -1,7 +1,7 @@
 (function () {
 "use strict";
 
-angular.module('watchFighers', [])
+angular.module('watchFighters', [])
 
   .directive('setIf', [function () {
     return {
